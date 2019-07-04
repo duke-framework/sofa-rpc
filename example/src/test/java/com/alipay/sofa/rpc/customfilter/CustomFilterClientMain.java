@@ -57,7 +57,7 @@ public class CustomFilterClientMain {
         LOGGER.warn("started at pid {}", RpcRuntimeContext.PID);
 
         try {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     String s = helloService.sayHello("xxx", 22);
                     LOGGER.warn("{}", s);

@@ -46,7 +46,7 @@ public class CustomEchoFilter extends Filter {
 
     @Override
     public SofaResponse invoke(FilterInvoker invoker, SofaRequest request) throws SofaRpcException {
-        LOGGER.info("echo request : {}, {}", request.getInterfaceName() + "." + request.getMethodName(),
+        LOGGER.info("【我是第一个】echo request : {}, {}", request.getInterfaceName() + "." + request.getMethodName(),
             request.getMethodArgs());
 
         SofaResponse response = invoker.invoke(request);
@@ -54,13 +54,13 @@ public class CustomEchoFilter extends Filter {
         if (response == null) {
             return response;
         } else if (response.isError()) {
-            LOGGER.info("server rpc error: {}", response.getErrorMsg());
+            LOGGER.info("【我是第一个】server rpc error: {}", response.getErrorMsg());
         } else {
             Object ret = response.getAppResponse();
             if (ret instanceof Throwable) {
-                LOGGER.error("server biz error: {}", (Throwable) ret);
+                LOGGER.error("【我是第一个】server biz error: {}", (Throwable) ret);
             } else {
-                LOGGER.info("echo response : {}", response.getAppResponse());
+                LOGGER.info("【我是第一个】echo response : {}", response.getAppResponse());
             }
         }
 
